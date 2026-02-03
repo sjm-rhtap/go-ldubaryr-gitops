@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-ldubaryr-gitops
+  description: This is GitOps manifest for go-ldubaryr   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-ldubaryr
+    backstage.io/kubernetes-id: go-ldubaryr 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: go-ldubaryr
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-ldubaryr
